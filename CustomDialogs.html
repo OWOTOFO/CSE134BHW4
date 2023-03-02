@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custom Dialogs</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.js" integrity="sha512-Jv1LuJlYi60auZ8kNw/Yjzpk0MK2mwF2OhA51j+fZZMcNvctE/S8KODl0kpnwa4emUs9Etz0hxOkp0wNpbvpnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+    </head>
+    <body>
+        <script type="text/javascript" src="customdialog.js"></script>
+        <dialog id="alrt">
+            <p>Alert</p>
+            <button class="close_btn" onclick="performClose('alrt')">Ok</button>
+        </dialog>
+        <dialog id="conf">
+            <p>Do you want to confirm this?</p>
+            <button class="cancl" onclick="CanclClicked('conf')">Cancel</button>
+            <button class="close_btn" onclick="OkClicked('conf')">Ok </button>
+        </dialog>
+        <dialog id="prom">
+            <p>What is your name?</p>
+            <input id="name" placeholder=""/>
+            <button class="cancl" onclick="CanclClicked('prom')">Cancel</button>
+            <button class="close_btn" onclick="OkClicked('prom')">Ok</button>
+        </dialog>
+        <h1>Custom Dialogs</h1>
+        <div id="btns">
+            <button id="alert_btn" onclick="showall('alrt')">Alert</button>
+            <button id="confirm_btn" onclick="showall('conf')">Confirm</button>
+            <button id="prompt_btn" onclick="showall('prom')">Prompt</button>
+        </div>
+        <hr>
+        <output id="txt" ></output>
+    </body>
+    
+</html>

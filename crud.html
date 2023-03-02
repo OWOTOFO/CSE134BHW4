@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movie CRUD</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.js" integrity="sha512-Jv1LuJlYi60auZ8kNw/Yjzpk0MK2mwF2OhA51j+fZZMcNvctE/S8KODl0kpnwa4emUs9Etz0hxOkp0wNpbvpnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <script type="text/javascript" src="blog.js"></script>
+        <dialog id="windbox">
+            <p>Post Title :</p>
+            <input type="text" id="titl" placeholder="Some Title" required>
+            <p>Post Date</p>
+            <input type="date" id="dat">
+            <p>Post summary</p>
+            <textarea id="summ" cols="30" rows="3"></textarea>
+            <br>
+            <Button id="cancl" onclick="cancel()">Cancel</Button>
+            <button id="sav" onclick="sve()">Save</button>
+        </dialog>
+        <h1><strong>Blogs</strong></h1>
+        <p id="noB"></p>
+        <ul style="list-style-type: disc;" id="blogList">
+            <script>loadlist();
+            </script>
+        </ul>
+        <button id="addB" onclick="addBlog()">Add Blog</button>
+    </body>
+</html>

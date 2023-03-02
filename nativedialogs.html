@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Dialogs</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.js" integrity="sha512-Jv1LuJlYi60auZ8kNw/Yjzpk0MK2mwF2OhA51j+fZZMcNvctE/S8KODl0kpnwa4emUs9Etz0hxOkp0wNpbvpnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <h1>Simple Dialogs?</h1>
+        <div id="btns">
+            <button id="alert_btn">Alert</button>
+            <button id="confirm_btn">Confirm</button>
+            <button id="prompt_btn">Prompt</button>
+            <button id="spromt_btn">Safer Prompt</button>
+        </div>
+        <hr>
+        <output id="txt" ></output>
+    </body>
+    <script>
+        var result;
+        function conf(){
+            result = confirm("Do you confirm this")
+            result = "The value returned by the confirm method is : " + result; 
+            txt.value = result;
+        }
+        function prmt() {
+            var person = prompt("What is your name?");
+            if (person == null || person == "") {
+                result = "User didn't enter anything";
+            } else {
+                result = "Promt result: " + person;
+            }
+            txt.value = result;
+        }
+        document.getElementById("alert_btn").addEventListener("click", alrt = () => window.alert("Alert pressed!"));
+        document.getElementById("confirm_btn").addEventListener("click", conf);
+        document.getElementById("prompt_btn").addEventListener("click", prmt);
+
+        function sprmt(){
+            var person = prompt("What is your name");
+            if (person == null || person == "") {
+                result = "User didn't enter anything";
+            } else {
+                result = "Promt result: " + person;
+            }
+            let cleanresult = DOMPurify.sanitize(result);
+            txt.value = cleanresult;
+        }
+
+        document.getElementById("spromt_btn").addEventListener("click", sprmt);
+    </script>
+</html>
