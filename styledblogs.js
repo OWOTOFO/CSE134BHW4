@@ -21,7 +21,7 @@ function loadlist(){
         list.removeChild(list.lastChild);
     }
 
-    for(let i = 0; i < db.length; i++){
+    for(let i = db.length-1; i >=0 ; i--){
         let title = db[i][0];
         let date = db[i][1];
         let sum = db[i][2];
@@ -29,31 +29,38 @@ function loadlist(){
         var li = document.createElement("li");
         li.setAttribute("id",uid);
         li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-            "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)" class="fa-solid fa-pen"></span> | <span class="fa-solid fa-trash" onclick="del(this.parentElement)"></span></li>';
+            'Summary:<p onclick="edit(this.parentElement)">' + sum + "</p>" + '<span  onclick="edit(this.parentElement)" class="fa-solid fa-pen"></span> | <span class="fa-solid fa-trash" onclick="del(this.parentElement)"></span></li>';
         list.appendChild(li);
     }
-    if(list.childElementCount == 1){
+    console.log(list.childElementCount);
+    if(list.childElementCount <= 1){
         document.getElementById("noB").innerHTML = "No blog at this time";
+    }
+    else{
+        document.getElementById("noB").innerHTML = "";
+
     }
 }
 function addBl(){
     let title = document.querySelector("#titl").value;
     let date = document.querySelector("#dat").value;
     let sum = document.querySelector("#summ").value;
-    let list = document.querySelector("#blogList");
     let uid = Date.now();
-    var li = document.createElement("li");
-    li.setAttribute("id",uid);
-    li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-        "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)" class="fa-solid fa-pen"></span> | <span class="fa-solid fa-trash" onclick="del(this.parentElement)"></span></li>';
-    list.appendChild(li);
-    isAdd = false;
     var arr = [title,date,sum,uid];
     db.push(arr);
+    isAdd = false;
     localStorage.setItem("database", JSON.stringify(db));
-    if(db.length != 0){
-        document.getElementById("noB").innerHTML = "";
-    }
+    // let list = document.querySelector("#blogList");
+    // var li = document.createElement("li");
+    // li.setAttribute("id",uid);
+    // li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
+    //     "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)" class="fa-solid fa-pen"></span> | <span class="fa-solid fa-trash" onclick="del(this.parentElement)"></span></li>';
+    // list.appendChild(li); 
+
+    // if(db.length != 0){
+    //     document.getElementById("noB").innerHTML = "";
+    // }
+    loadlist();
 }
 function cancel(){
     document.getElementById("windbox").close();
@@ -66,7 +73,6 @@ function edit(e){
             i = x;
         }
     }
-    console.log(i);
     ei = i;
     document.querySelector("#titl").value = db[i][0];
     document.querySelector("#dat").value = db[i][1];
