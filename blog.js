@@ -29,7 +29,7 @@ function loadlist(){
         var li = document.createElement("li");
         li.setAttribute("id",uid);
         li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-            "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)"></span> | <span onclick="del(this.parentElement)"></span></li>';
+            "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)">Edit</span> | <span onclick="del(this.parentElement)">Delete</span></li>';
         list.appendChild(li);
     }
     if(list.childElementCount == 1){
@@ -45,7 +45,7 @@ function addBl(){
     var li = document.createElement("li");
     li.setAttribute("id",uid);
     li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-        "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)"></span> | <span onclick="del(this.parentElement)"></span></li>';
+        "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)">Edit</span> | <span onclick="del(this.parentElement)">Delete</span></li>';
     list.appendChild(li);
     isAdd = false;
     var arr = [title,date,sum,uid];
