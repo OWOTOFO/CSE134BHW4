@@ -1,0 +1,125 @@
+table, th, td {
+    border: 1px solid black;
+    }
+    .DivTester{
+        border: 10px outset rebeccapurple;
+        background-color: burlywood;
+    }
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+    #headName{
+        margin: 0;
+    }
+    #name_with_pic{
+        font-family: 'Roboto',sans-serif;
+        max-width:50%;
+        height: 30%;
+        margin: 0px;
+    }
+    #Info_Sum{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 2px 5px;
+    }
+    #Info_Sum > div{
+        /* border: 1px solid rgb(128, 45, 0); */
+        flex: 1 1 auto;
+        /* width:  50%;
+        height: 30%; */
+    }
+    #status{
+        padding: 3px;
+        /* background-color: yellowgreen   ; */
+        font-size: 1.2rem;
+        max-width: 50%;
+    }
+    #status > h3{
+        /* margin: 0; */
+        margin-top: 27.5px;
+    }
+    #contactInfo{
+        max-width: 70%;
+        margin-bottom: rem;
+    }
+    #contactInfo > table{
+        height: 60%;
+        width: max-content;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    #info_detail{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 2px 5px;
+    }
+    #status>h3{
+        transition: background-color 1s;
+    }
+    #personal_pic:hover{
+        transform: rotate(10deg);
+    }
+    #status>h3:hover{
+        background-color: lightyellow;
+    }
+    /* #contactInfo > table:hover{
+        
+    } */
+    i{
+        color: black;
+    }
+    i:hover{
+        scale: 1.2 1.2;
+    }
+    .contact:hover{
+        animation: linkOnhov 2s;
+    }
+    @keyframes linkOnhov {
+        0% {background-color: aqua;}
+        50% {background-color: lightcyan;}
+        /* 100% {background-color: lightyellow;} */
+    }
+    *{
+        background-color: lightcyan;
+    }
+    @media only screen and (max-width:310px){
+        *{
+            background-color: lightblue;
+        }
+        #contactInfo > table{
+        height: 10vh;
+        width: min-content;
+        }
+        #personal_pic::before{
+            width: 90vw;
+            height: auto;
+        }
+    }
+    @media only screen and (min-width:980px) {
+        *{
+            background-color: lightyellow;
+        }
+        #Info_Sum > div{
+        flex: 1 1 auto;
+        }  
+
+        #status{
+        padding: 3px;
+        font-size: 1.2rem;
+        width: 50%;
+        } 
+        #name_with_pic{
+        font-family: 'Roboto',sans-serif;
+        max-width:30%;
+        height: 30%;
+        margin: 0px;
+        }
+        #contactInfo > table{
+        font-size: 1.5rem;
+        height: 15vh;
+        width: max-content;
+    }
+    }
