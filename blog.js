@@ -1,5 +1,6 @@
 let isAdd = false;
 let uid = 0;
+let ei;
 var db = [
     // ["Title1", " 2012-12-21","Some Summary", "1" ],
     // ["Title2", " 2013-12-21","Summary", "2"]
@@ -14,19 +15,25 @@ function addBlog(){
     isAdd = true;
 }
 function loadlist(){
-    var db = JSON.parse(localStorage.getItem("database"));
+    db = JSON.parse(localStorage.getItem("database"));
+    let list = document.querySelector("#blogList");
+    while(list.childElementCount > 1){
+        list.removeChild(list.lastChild);
+    }
 
     for(let i = 0; i < db.length; i++){
         let title = db[i][0];
         let date = db[i][1];
         let sum = db[i][2];
         let uid = db[i][3];
-        let list = document.querySelector("#blogList");
         var li = document.createElement("li");
         li.setAttribute("id",uid);
         li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-            "Summary: <br>" + sum + "<br>" + "<span onclick=edit(this.parentElement)>Edit</span> | <span onclick=del(this.parentElement)>Delete</span></li>";
+            "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)"></span> | <span onclick="del(this.parentElement)"></span></li>';
         list.appendChild(li);
+    }
+    if(list.childElementCount == 1){
+        document.getElementById("noB").innerHTML = "No blog at this time";
     }
 }
 function addBl(){
@@ -38,7 +45,7 @@ function addBl(){
     var li = document.createElement("li");
     li.setAttribute("id",uid);
     li.innerHTML = "Title: " + title + "<br>" + " Date: " + date + "<br>" +
-         "Summary: <br>" + sum + "<br>" + "<span onclick=edit(this.parentElement)>Edit</span> | <span onclick=del(this.parentElement)>Delete</span></li>";
+        "Summary: <br>" + sum + "<br>" + '<span  onclick="edit(this.parentElement)"></span> | <span onclick="del(this.parentElement)"></span></li>';
     list.appendChild(li);
     isAdd = false;
     var arr = [title,date,sum,uid];
@@ -59,6 +66,8 @@ function edit(e){
             i = x;
         }
     }
+    console.log(i);
+    ei = i;
     document.querySelector("#titl").value = db[i][0];
     document.querySelector("#dat").value = db[i][1];
     document.querySelector("#summ").value = db[i][2];
@@ -76,11 +85,12 @@ function del(e){
     let list = document.querySelector("#blogList");
     list.removeChild(e);
     localStorage.setItem("database", JSON.stringify(db));
-    if(list.childNodes.length == 3){
+    
+    if(list.childElementCount == 1){
         document.getElementById("noB").innerHTML = "No blog at this time";
     }
 }
-function sve(){
+function sve(e){
     if(isAdd){
         addBl();
         cancel();
@@ -90,6 +100,11 @@ function sve(){
         let date = document.querySelector("#dat").value;
         let sum = document.querySelector("#summ").value;
         let list = document.querySelector("#blogList");
+        db[ei][0]=title;
+        db[ei][1]=date;
+        db[ei][2]=sum;
+        localStorage.setItem("database", JSON.stringify(db));
         cancel();
+        loadlist();
     }
 }
