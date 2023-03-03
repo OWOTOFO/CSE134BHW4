@@ -1,26 +1,21 @@
-Kemou Chen
+Kemou Chen 
 A16129229
 
-Profile page:
-https://kemouchen-hw4.netlify.app
+Profile page: https://kemouchen-hw4.netlify.app
+
+Blog https://kemouchen-hw4.netlify.app/crud.html
+
+Custom Blog page: https://kemouchen-hw4.netlify.app/styledcurd.html
 
 
-Custom Blog page (dialog):
-https://kemouchen-hw4.netlify.app/CustomDialogs.html
+Native dialog page: https://kemouchen-hw4.netlify.app/nativedialogs.html
 
-Custom Blog page (styled):
-https://kemouchen-hw4.netlify.app/styledcurd.html
-
+Custom dialog page: https://kemouchen-hw4.netlify.app/CustomDialogs.html
 
 relate links:
-https://kemouchen-hw4.netlify.app/nativedialogs.html
-
-https://kemouchen-hw4.netlify.app/customdialog.js  
+https://kemouchen-hw4.netlify.app/customdialog.js
 
 https://kemouchen-hw4.netlify.app/blog.js
-
-https://kemouchen-hw4.netlify.app/crud.html
-
 
 https://kemouchen-hw4.netlify.app/styledblogs.js
 
