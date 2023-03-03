@@ -36,3 +36,9 @@ li > p{
 #windbox > *{
     margin: 0;
 }
+h1{
+    margin-left: 30px;
+}
+h1 + p{
+    margin-left: 40px;
+}
