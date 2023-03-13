@@ -1,7 +1,7 @@
 let isAdd = false;
 let uid = 0;
 let ei;
-var db = JSON.parse(localStorage.getItem("database"));
+var db;
 
 function addBlog(){
     document.querySelector("#titl").value = "";
@@ -12,6 +12,10 @@ function addBlog(){
 }
 function loadlist(){
     db = JSON.parse(localStorage.getItem("database"));
+    if(db == null)
+    {
+        db = [];
+    }
     let list = document.querySelector("#blogList");
     while(list.childElementCount > 1){
         list.removeChild(list.lastChild);
