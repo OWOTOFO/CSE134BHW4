@@ -1,11 +1,7 @@
 let isAdd = false;
 let uid = 0;
 let ei;
-var db = [
-    // ["Title1", " 2012-12-21","Some Summary", "1" ],
-    // ["Title2", " 2013-12-21","Summary", "2"]
-];
-
+var db = JSON.parse(localStorage.getItem("database"));
 
 function addBlog(){
     document.querySelector("#titl").value = "";
