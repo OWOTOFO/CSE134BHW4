@@ -16,6 +16,10 @@ function addBlog(){
 }
 function loadlist(){
     db = JSON.parse(localStorage.getItem("database"));
+    if(db == null)
+    {
+        db = [];
+    }
     let list = document.querySelector("#blogList");
     while(list.childElementCount > 1){
         list.removeChild(list.lastChild);
